@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  # Cloud Application Service
+  app:
+    build: .
+    container_name: cloud_complaint_app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - MONGODB_URI=mongodb://mongo:27017/cloud_complaints
+    depends_on:
+      - mongo
+    volumes:
+      - app_uploads:/usr/src/app/uploads
+      - app_data:/usr/src/app/data
+    networks:
+      - cloud_net
+
+  # Local DBaaS Emulation Service (MongoDB)
+  mongo:
+    image: mongo:6.0
+    container_name: cloud_complaint_mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - cloud_net
+
+volumes:
+  app_uploads:
+  app_data:
+  mongo_data:
+
+networks:
+  cloud_net:
+    driver: bridge

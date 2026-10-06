@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Uploads cache (keep folder, ignore files)
+uploads/*
+!uploads/.gitkeep
+
+# IDE files
+.vscode/
+.idea/

@@ -1,0 +1,138 @@
+[
+  {
+    "_id": "cmp_17912452787930iab",
+    "trackingId": "CMP-2026-5497",
+    "title": "Automated Test Cloud Ticket",
+    "category": "IT & Lab Infrastructure",
+    "priority": "Urgent",
+    "description": "Testing cloud database persistence and event triggers",
+    "complainantName": "Lucky Biswal",
+    "complainantEmail": "luckybiswal98210@gmail.com",
+    "complainantPhone": "",
+    "department": "Cloud Computing Cell",
+    "assignedOfficer": "Pending Assignment",
+    "status": "Submitted",
+    "attachment": null,
+    "timeline": [
+      {
+        "status": "Submitted",
+        "timestamp": "2026-10-06T00:07:58.793Z",
+        "updatedBy": "System Portal",
+        "comments": "Grievance ticket registered in Cloud System"
+      }
+    ],
+    "resolutionNotes": "",
+    "feedback": null,
+    "createdAt": "2026-10-06T00:07:58.793Z",
+    "updatedAt": "2026-10-06T00:07:58.793Z"
+  },
+  {
+    "_id": "seed-001",
+    "trackingId": "CMP-2026-1042",
+    "title": "Wi-Fi connectivity dropping in Computer Lab 3",
+    "category": "IT & Lab Infrastructure",
+    "priority": "High",
+    "description": "The access point in Lab 3 keeps rebooting every 10 minutes, disrupting students during Cloud Computing practical lab sessions.",
+    "complainantName": "Rohan Sharma",
+    "complainantEmail": "rohan.sharma@college.edu",
+    "complainantPhone": "+91 98765 43210",
+    "department": "Network Operations Cell",
+    "assignedOfficer": "Er. Rajesh Kumar",
+    "status": "In Progress",
+    "attachment": null,
+    "timeline": [
+      {
+        "status": "Submitted",
+        "timestamp": "2026-10-04T11:44:21.527Z",
+        "updatedBy": "System Portal",
+        "comments": "Grievance ticket created in Cloud Database"
+      },
+      {
+        "status": "Under Review",
+        "timestamp": "2026-10-04T23:44:21.528Z",
+        "updatedBy": "Helpdesk Admin",
+        "comments": "Forwarded to Network Operations team"
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-10-05T11:44:21.528Z",
+        "updatedBy": "Er. Rajesh Kumar",
+        "comments": "Access point firmware upgrade and VLAN router reset scheduled"
+      }
+    ],
+    "resolutionNotes": "",
+    "feedback": null,
+    "createdAt": "2026-10-04T11:44:21.528Z",
+    "updatedAt": "2026-10-05T11:44:21.528Z"
+  },
+  {
+    "_id": "seed-002",
+    "trackingId": "CMP-2026-2187",
+    "title": "Water cooler purification filter replacement in Block B",
+    "category": "Sanitation & Cleanliness",
+    "priority": "Urgent",
+    "description": "The water cooler on the second floor of Block B has muddy output and requires urgent RO cartridge replacement.",
+    "complainantName": "Priya Verma",
+    "complainantEmail": "priya.verma@college.edu",
+    "complainantPhone": "+91 91234 56789",
+    "department": "Campus Facilities & Maintenance",
+    "assignedOfficer": "Mr. Sunil Patil",
+    "status": "Resolved",
+    "attachment": null,
+    "timeline": [
+      {
+        "status": "Submitted",
+        "timestamp": "2026-10-03T23:44:21.528Z",
+        "updatedBy": "System Portal",
+        "comments": "Ticket logged"
+      },
+      {
+        "status": "In Progress",
+        "timestamp": "2026-10-04T17:44:21.528Z",
+        "updatedBy": "Maintenance Supervisor",
+        "comments": "Technician dispatched with replacement membrane"
+      },
+      {
+        "status": "Resolved",
+        "timestamp": "2026-10-05T17:44:21.528Z",
+        "updatedBy": "Mr. Sunil Patil",
+        "comments": "RO filter replaced, TDS levels verified safe (<90 ppm)"
+      }
+    ],
+    "resolutionNotes": "Filter cartridge and UV lamp replaced successfully. Water sample verified.",
+    "feedback": {
+      "rating": 5,
+      "comments": "Prompt resolution within 24 hours. Excellent support!",
+      "submittedAt": "2026-10-05T21:44:21.528Z"
+    },
+    "createdAt": "2026-10-03T23:44:21.528Z",
+    "updatedAt": "2026-10-05T17:44:21.528Z"
+  },
+  {
+    "_id": "seed-003",
+    "trackingId": "CMP-2026-3094",
+    "title": "Projector HDMI port damaged in Seminar Hall A",
+    "category": "Academic & Examination",
+    "priority": "Medium",
+    "description": "The wall-mounted HDMI cable socket is loose and causes screen flickering during seminars.",
+    "complainantName": "Prof. Ananya Sen",
+    "complainantEmail": "ananya.sen@college.edu",
+    "complainantPhone": "+91 99887 76655",
+    "department": "Audio-Visual Cell",
+    "assignedOfficer": "Pending Assignment",
+    "status": "Submitted",
+    "attachment": null,
+    "timeline": [
+      {
+        "status": "Submitted",
+        "timestamp": "2026-10-05T20:44:21.528Z",
+        "updatedBy": "System Portal",
+        "comments": "Grievance ticket created in Cloud Database"
+      }
+    ],
+    "resolutionNotes": "",
+    "feedback": null,
+    "createdAt": "2026-10-05T20:44:21.528Z",
+    "updatedAt": "2026-10-05T20:44:21.528Z"
+  }
+]

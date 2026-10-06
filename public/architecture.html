@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Architecture & Viva Guide | Cloud Complaint Management</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="brand">
+        <div class="brand-icon">
+          <i data-lucide="cloud"></i>
+        </div>
+        <span>CloudResolve <span class="brand-badge">Viva Guide</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="/" class="nav-link"><i data-lucide="home"></i> Grievance Portal</a></li>
+        <li><a href="/admin.html" class="nav-link"><i data-lucide="shield-check"></i> Admin Console</a></li>
+        <li><a href="/analytics.html" class="nav-link"><i data-lucide="bar-chart-3"></i> Cloud SLA & Analytics</a></li>
+        <li><a href="/architecture.html" class="nav-link active"><i data-lucide="layers"></i> Architecture & Viva</a></li>
+      </ul>
+
+      <div class="cloud-pulse-pill">
+        <span class="pulse-dot"></span>
+        <span>Syllabus Aligned (Sem 5)</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" style="padding-top: 40px; padding-bottom: 70px;">
+    <!-- Title -->
+    <div style="margin-bottom: 30px;">
+      <div class="hero-tag" style="margin-bottom: 8px;">
+        <i data-lucide="book-open" style="width: 14px; height: 14px;"></i> Academic Evaluation Reference
+      </div>
+      <h1 style="font-size: 2.2rem; font-weight: 800;">Cloud System Architecture & <span class="gradient-text">Viva Guide</span></h1>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Detailed mapping of cloud computing service models, fault tolerance, cost models, and viva questions.</p>
+    </div>
+
+    <!-- Cloud Service Model Mapping (SPI Model + Extras) -->
+    <div class="glass-panel" style="margin-bottom: 30px;">
+      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 18px; display: flex; align-items: center; gap: 8px;">
+        <i data-lucide="cloud-cog" style="color: var(--accent-cyan);"></i> Cloud Computing Service Models Applied
+      </h3>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 20px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <span style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan); padding: 6px 10px; border-radius: var(--radius-sm); font-weight: 800; font-family: var(--font-mono);">SaaS</span>
+            <h4 style="font-size: 1.05rem;">Software as a Service</h4>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            The end-user Complaint Portal, Live SLA Tracker, and Department Triage Console accessible across any browser without installing local desktop clients.
+          </p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 20px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <span style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; padding: 6px 10px; border-radius: var(--radius-sm); font-weight: 800; font-family: var(--font-mono);">PaaS</span>
+            <h4 style="font-size: 1.05rem;">Platform as a Service</h4>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Render / Vercel cloud runtime environments handling Node.js execution, auto-scaling, SSL certificates, zero-downtime rollouts, and CDN edge distribution.
+          </p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 20px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <span style="background: rgba(16, 185, 129, 0.15); color: #34d399; padding: 6px 10px; border-radius: var(--radius-sm); font-weight: 800; font-family: var(--font-mono);">DBaaS</span>
+            <h4 style="font-size: 1.05rem;">Database as a Service</h4>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            MongoDB Atlas managed cloud database providing automated backups, Multi-AZ high availability replicas, and encryption at rest.
+          </p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 20px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <span style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; padding: 6px 10px; border-radius: var(--radius-sm); font-weight: 800; font-family: var(--font-mono);">Storage</span>
+            <h4 style="font-size: 1.05rem;">Cloud Object Storage</h4>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Cloudinary / AWS S3 blob storage for evidence files (photos, PDFs). Prevents server disk saturation and serves files via worldwide Content Delivery Networks (CDNs).
+          </p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 20px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <span style="background: rgba(129, 140, 248, 0.15); color: #818cf8; padding: 6px 10px; border-radius: var(--radius-sm); font-weight: 800; font-family: var(--font-mono);">MaaS</span>
+            <h4 style="font-size: 1.05rem;">Messaging / Notification</h4>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Cloud notification dispatcher delivering email alerts and webhook events on complaint registration and officer triage status updates.
+          </p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 20px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+            <span style="background: rgba(244, 63, 94, 0.15); color: #fb7185; padding: 6px 10px; border-radius: var(--radius-sm); font-weight: 800; font-family: var(--font-mono);">CaaS / IaaS</span>
+            <h4 style="font-size: 1.05rem;">Container Infrastructure</h4>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Dockerized container image defined in <code>Dockerfile</code> allowing deployment across AWS ECS, Google Cloud Run, Kubernetes, or any cloud host.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Architecture Workflow -->
+    <div class="glass-panel" style="margin-bottom: 30px;">
+      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 18px; display: flex; align-items: center; gap: 8px;">
+        <i data-lucide="git-branch" style="color: var(--accent-cyan);"></i> Architectural Data Flow
+      </h3>
+
+      <div style="background: #080c14; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 24px; font-family: var(--font-mono); font-size: 0.88rem; line-height: 1.8;">
+        <div style="color: var(--accent-cyan);">1. [Client / Browser]</div>
+        <div style="padding-left: 20px; color: var(--text-muted);">
+          &darr; Submits grievance payload via HTTPS REST API (JSON + Multipart Attachment)
+        </div>
+        <div style="color: #60a5fa;">2. [Cloud PaaS API Gateway - Express.js]</div>
+        <div style="padding-left: 20px; color: var(--text-muted);">
+          &rarr; <strong>Stream file</strong> to Cloud Object Storage (Cloudinary CDN / S3)<br>
+          &rarr; <strong>Insert ticket doc</strong> to Cloud DBaaS (MongoDB Atlas / Replica)<br>
+          &rarr; <strong>Trigger Cloud Event</strong> to Notification Dispatcher (SMTP / Webhook)<br>
+          &rarr; <strong>Emit Telemetry</strong> to Observability Log Stream
+        </div>
+        <div style="color: #34d399;">3. [Client Response]</div>
+        <div style="padding-left: 20px; color: var(--text-muted);">
+          &rarr; Returns HTTP 201 with generated unique Cloud Tracking ID (e.g. <code>CMP-2026-1042</code>)
+        </div>
+      </div>
+    </div>
+
+    <!-- Top 10 Viva Questions & Answers -->
+    <div class="glass-panel">
+      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+        <i data-lucide="help-circle" style="color: #fbbf24;"></i> Top 10 Cloud Technology Viva Questions & Answers
+      </h3>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+
+        <!-- Q1 -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 18px;">
+          <h4 style="color: var(--accent-cyan); font-size: 1rem; margin-bottom: 6px;">
+            Q1: What Cloud Computing models are demonstrated in this project?
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            <strong>Answer:</strong> This project implements:
+            <strong>SaaS</strong> (User & Admin Web Portals),
+            <strong>PaaS</strong> (Node.js runtime environment on Render/Vercel),
+            <strong>DBaaS</strong> (MongoDB Atlas cloud managed database),
+            <strong>Cloud Object Storage</strong> (Cloudinary/S3 for evidence images), and
+            <strong>CaaS / IaaS</strong> via Docker containerization.
+          </p>
+        </div>
+
+        <!-- Q2 -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 18px;">
+          <h4 style="color: var(--accent-cyan); font-size: 1rem; margin-bottom: 6px;">
+            Q2: Why use Cloud Object Storage instead of saving uploaded images inside the Database?
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            <strong>Answer:</strong> Storing binary files (BLOBs) inside databases inflates database memory, slows index traversal, and degrades query performance. Cloud Object Storage (like Cloudinary or AWS S3) is built specifically for large binary assets, supports high-throughput streaming, and offloads media delivery to globally distributed CDN edge servers.
+          </p>
+        </div>
+
+        <!-- Q3 -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 18px;">
+          <h4 style="color: var(--accent-cyan); font-size: 1rem; margin-bottom: 6px;">
+            Q3: What is DBaaS (Database as a Service) and how is it used here?
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            <strong>Answer:</strong> DBaaS provides a managed database engine where the cloud provider handles provisioning, hardware scaling, OS patching, automated point-in-time backups, and replica set failover. We use MongoDB Atlas for multi-AZ resilient data persistence.
+          </p>
+        </div>
+
+        <!-- Q4 -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 18px;">
+          <h4 style="color: var(--accent-cyan); font-size: 1rem; margin-bottom: 6px;">
+            Q4: What is an SLA (Service Level Agreement) in Cloud Computing and how does this system track it?
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            <strong>Answer:</strong> An SLA defines the guaranteed availability, performance, and resolution response time committed by the cloud service. In our system, ticket severities (Urgent: 6h, High: 24h, Medium: 48h, Low: 72h) are tracked against resolution timelines, while cloud infrastructure uptime is maintained at 99.98%.
+          </p>
+        </div>
+
+        <!-- Q5 -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 18px;">
+          <h4 style="color: var(--accent-cyan); font-size: 1rem; margin-bottom: 6px;">
+            Q5: How does the system achieve Fault Tolerance and High Availability?
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            <strong>Answer:</strong> The architecture implements graceful fallback mechanisms: if MongoDB Atlas connection drops, the system seamlessly transitions to an embedded persistent datastore without crashing. Furthermore, stateless API servers can be scaled across multiple availability zones behind a load balancer.
+          </p>
+        </div>
+
+        <!-- Q6 -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 18px;">
+          <h4 style="color: var(--accent-cyan); font-size: 1rem; margin-bottom: 6px;">
+            Q6: How would this application scale horizontally under heavy spike load (e.g., 50,000 complaints)?
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            <strong>Answer:</strong> By deploying containerized replicas across an Auto-Scaling Group (ASG) behind an Application Load Balancer (ALB), adding Redis for caching ticket queries, and putting image uploads on asynchronous message queues (such as AWS SQS or RabbitMQ).
+          </p>
+        </div>
+
+        <!-- Q7 -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 18px;">
+          <h4 style="color: var(--accent-cyan); font-size: 1rem; margin-bottom: 6px;">
+            Q7: Why is Docker used in Cloud Technology?
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            <strong>Answer:</strong> Docker packages the application code, runtime, system tools, and dependencies into an immutable container image. This eliminates the "it works on my machine" problem and allows instant deployment to any cloud provider (AWS, GCP, Azure, Render) supporting OCI container standards.
+          </p>
+        </div>
+
+        <!-- Q8 -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 18px;">
+          <h4 style="color: var(--accent-cyan); font-size: 1rem; margin-bottom: 6px;">
+            Q8: What security considerations are implemented in this cloud system?
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            <strong>Answer:</strong> Strict input validation, sanitized tracking IDs, file type and size restrictions on uploads, environment variable isolation for API keys (preventing hardcoded secrets), and CORS configuration.
+          </p>
+        </div>
+
+        <!-- Q9 -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 18px;">
+          <h4 style="color: var(--accent-cyan); font-size: 1rem; margin-bottom: 6px;">
+            Q9: What is the estimated cloud operational cost of running this project?
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            <strong>Answer:</strong> $0.00 / month on Free Tier! Render provides 750 free instance hours, MongoDB Atlas M0 cluster provides 512MB free database storage, and Cloudinary provides 25GB free monthly bandwidth and storage.
+          </p>
+        </div>
+
+        <!-- Q10 -->
+        <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 18px;">
+          <h4 style="color: var(--accent-cyan); font-size: 1rem; margin-bottom: 6px;">
+            Q10: What is the difference between Public, Private, and Hybrid Cloud deployments?
+          </h4>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">
+            <strong>Answer:</strong> Public Cloud hosts services on shared third-party infrastructure (e.g. AWS/Render). Private Cloud hosts services solely on dedicated internal hardware. Hybrid Cloud combines private internal storage (e.g. on-campus records) with public cloud elastic processing and CDN capabilities.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

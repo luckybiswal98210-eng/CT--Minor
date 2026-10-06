@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin & Department Console | Cloud Complaint Management</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="brand">
+        <div class="brand-icon">
+          <i data-lucide="cloud"></i>
+        </div>
+        <span>CloudResolve <span class="brand-badge">Admin Mode</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="/" class="nav-link"><i data-lucide="home"></i> Grievance Portal</a></li>
+        <li><a href="/admin.html" class="nav-link active"><i data-lucide="shield-check"></i> Admin Console</a></li>
+        <li><a href="/analytics.html" class="nav-link"><i data-lucide="bar-chart-3"></i> Cloud SLA & Analytics</a></li>
+        <li><a href="/architecture.html" class="nav-link"><i data-lucide="layers"></i> Architecture & Viva</a></li>
+      </ul>
+
+      <div class="cloud-pulse-pill">
+        <span class="pulse-dot"></span>
+        <span id="adminCloudStatus">Cloud DBaaS Synchronized</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" style="padding-top: 40px; padding-bottom: 60px;">
+    <!-- Header -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; flex-wrap: wrap; gap: 16px;">
+      <div>
+        <div class="hero-tag" style="margin-bottom: 8px;">
+          <i data-lucide="shield" style="width: 14px; height: 14px;"></i> Officer Operations Dashboard
+        </div>
+        <h1 style="font-size: 2.2rem; font-weight: 800;">Cloud Grievance <span class="gradient-text">Triage & Resolution</span></h1>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Manage incoming tickets, allocate department officers, and update SLA resolution records.</p>
+      </div>
+
+      <button class="btn btn-secondary" onclick="loadComplaints()">
+        <i data-lucide="refresh-cw"></i> Refresh Cloud Data
+      </button>
+    </div>
+
+    <!-- Stats KPI Cards -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">
+          <i data-lucide="inbox"></i>
+        </div>
+        <div>
+          <div class="stat-val" id="statTotal">0</div>
+          <div class="stat-lbl">Total Lodged Tickets</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">
+          <i data-lucide="clock"></i>
+        </div>
+        <div>
+          <div class="stat-val" id="statPending">0</div>
+          <div class="stat-lbl">Pending Review</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="background: rgba(129, 140, 248, 0.15); color: #818cf8;">
+          <i data-lucide="wrench"></i>
+        </div>
+        <div>
+          <div class="stat-val" id="statInProgress">0</div>
+          <div class="stat-lbl">In Progress / Assigned</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">
+          <i data-lucide="check-circle-2"></i>
+        </div>
+        <div>
+          <div class="stat-val" id="statResolved">0</div>
+          <div class="stat-lbl">Resolved (Closed SLA)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter & Search Bar -->
+    <div class="glass-panel" style="padding: 20px; margin-bottom: 24px;">
+      <div class="filter-bar" style="margin-bottom: 0;">
+        <input type="text" id="adminSearch" class="form-control filter-input" placeholder="Search by Ticket ID, Title, or Student Name..." oninput="debounceFilter()">
+        
+        <select id="filterStatus" class="form-select" style="max-width: 180px;" onchange="loadComplaints()">
+          <option value="All">All Statuses</option>
+          <option value="Submitted">Submitted</option>
+          <option value="Under Review">Under Review</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Resolved">Resolved</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+
+        <select id="filterCategory" class="form-select" style="max-width: 220px;" onchange="loadComplaints()">
+          <option value="All">All Categories</option>
+          <option value="IT & Lab Infrastructure">IT & Lab</option>
+          <option value="Academic & Examination">Academic & Exam</option>
+          <option value="Hostel & Residential">Hostel</option>
+          <option value="Sanitation & Cleanliness">Sanitation</option>
+          <option value="Transport & Parking">Transport</option>
+          <option value="Campus Security & Safety">Security</option>
+          <option value="General Administration">General Admin</option>
+        </select>
+
+        <select id="filterPriority" class="form-select" style="max-width: 160px;" onchange="loadComplaints()">
+          <option value="All">All Priorities</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+          <option value="Urgent">Urgent</option>
+        </select>
+
+        <button class="btn btn-secondary btn-sm" onclick="resetFilters()">Reset</button>
+      </div>
+    </div>
+
+    <!-- Data Table Container -->
+    <div class="data-table-container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Ticket ID</th>
+            <th>Grievance Subject</th>
+            <th>Category</th>
+            <th>Priority</th>
+            <th>Complainant</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="complaintsTableBody">
+          <tr>
+            <td colspan="8" style="text-align: center; padding: 40px; color: var(--text-muted);">
+              ⏳ Fetching records from Cloud Database...
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Triage Modal -->
+  <div class="modal-overlay" id="triageModal">
+    <div class="modal-content" style="max-width: 720px; max-height: 90vh; overflow-y: auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h3 style="font-size: 1.4rem; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="sliders" style="color: var(--accent-cyan);"></i> Ticket Triage & Resolution
+        </h3>
+        <button class="btn btn-secondary btn-sm" onclick="closeTriageModal()">✕</button>
+      </div>
+
+      <div id="modalDetailsView" style="margin-bottom: 24px;">
+        <!-- Injected details -->
+      </div>
+
+      <form id="triageForm" onsubmit="handleTriageSubmit(event)">
+        <input type="hidden" id="modalTicketId">
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="modalStatus">Update Workflow Status</label>
+            <select id="modalStatus" class="form-select" required>
+              <option value="Submitted">Submitted</option>
+              <option value="Under Review">Under Review</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Resolved">Resolved</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="modalDepartment">Assigned Department</label>
+            <input type="text" id="modalDepartment" class="form-control" placeholder="e.g. Facilities Cell">
+          </div>
+
+          <div class="form-group form-full">
+            <label class="form-label" for="modalOfficer">Assigned Handling Officer</label>
+            <input type="text" id="modalOfficer" class="form-control" placeholder="e.g. Er. Vikram Singh (Senior Engineer)">
+          </div>
+
+          <div class="form-group form-full">
+            <label class="form-label" for="modalComments">Officer Status Remarks / Log Entry</label>
+            <input type="text" id="modalComments" class="form-control" placeholder="e.g. Inspection completed, spare parts dispatched">
+          </div>
+
+          <div class="form-group form-full">
+            <label class="form-label" for="modalResolutionNotes">Final Resolution Report (Required when Resolving)</label>
+            <textarea id="modalResolutionNotes" rows="3" class="form-control" placeholder="Detail the concrete steps taken to resolve this grievance for the student report..."></textarea>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; display: flex; justify-content: flex-end; gap: 12px;">
+          <button type="button" class="btn btn-secondary" onclick="closeTriageModal()">Cancel</button>
+          <button type="submit" id="modalSaveBtn" class="btn btn-primary">
+            <i data-lucide="save"></i> Update Cloud Record
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/admin.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

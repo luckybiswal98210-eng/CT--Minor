@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud SLA & Analytics Observability | Cloud Complaint Management</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Chart.js for data visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="/" class="brand">
+        <div class="brand-icon">
+          <i data-lucide="cloud"></i>
+        </div>
+        <span>CloudResolve <span class="brand-badge">Observability</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="/" class="nav-link"><i data-lucide="home"></i> Grievance Portal</a></li>
+        <li><a href="/admin.html" class="nav-link"><i data-lucide="shield-check"></i> Admin Console</a></li>
+        <li><a href="/analytics.html" class="nav-link active"><i data-lucide="bar-chart-3"></i> Cloud SLA & Analytics</a></li>
+        <li><a href="/architecture.html" class="nav-link"><i data-lucide="layers"></i> Architecture & Viva</a></li>
+      </ul>
+
+      <div class="cloud-pulse-pill">
+        <span class="pulse-dot"></span>
+        <span id="analyticsPill">Telemetry Live</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" style="padding-top: 40px; padding-bottom: 60px;">
+    <!-- Title -->
+    <div style="margin-bottom: 30px;">
+      <div class="hero-tag" style="margin-bottom: 8px;">
+        <i data-lucide="activity" style="width: 14px; height: 14px;"></i> Cloud Infrastructure Observability
+      </div>
+      <h1 style="font-size: 2.2rem; font-weight: 800;">Cloud Performance & <span class="gradient-text">Grievance Analytics</span></h1>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Monitoring SLA targets, resolution velocities, and cloud infrastructure telemetry.</p>
+    </div>
+
+    <!-- Cloud Infrastructure Telemetry Banner -->
+    <div class="glass-panel" style="padding: 24px; margin-bottom: 30px;">
+      <h3 style="font-size: 1.15rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+        <i data-lucide="server" style="color: var(--accent-cyan);"></i> Active Cloud Infrastructure Metrics
+      </h3>
+
+      <div class="ticket-details-grid" style="margin-top: 0; grid-template-columns: repeat(4, 1fr);">
+        <div class="detail-item">
+          <span class="detail-label">Cloud Region</span>
+          <span class="detail-value" id="cloudRegionVal" style="color: var(--accent-cyan);">-</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">SLA Target / Actual</span>
+          <span class="detail-value" style="color: #34d399;" id="cloudSlaVal">99.98% Available</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">DBaaS Cluster</span>
+          <span class="detail-value" id="cloudDbVal">-</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Object Storage Provider</span>
+          <span class="detail-value" id="cloudStorageVal">-</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Instance Uptime</span>
+          <span class="detail-value" id="cloudUptimeVal">-</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Memory Allocated (RSS)</span>
+          <span class="detail-value" id="cloudMemoryVal">-</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Total Cloud API Calls</span>
+          <span class="detail-value" id="cloudRequestsVal">-</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Notification Engine</span>
+          <span class="detail-value" id="cloudNotifVal">Event Webhook / SMTP</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 30px;">
+      <!-- Chart 1: Status Distribution -->
+      <div class="glass-panel">
+        <h4 style="font-size: 1.1rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="pie-chart" style="color: #60a5fa;"></i> Ticket Resolution Pipeline
+        </h4>
+        <div style="position: relative; height: 280px;">
+          <canvas id="statusChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Chart 2: Priority Severity -->
+      <div class="glass-panel">
+        <h4 style="font-size: 1.1rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="alert-triangle" style="color: #fb923c;"></i> Priority Severity Levels
+        </h4>
+        <div style="position: relative; height: 280px;">
+          <canvas id="priorityChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Volume Chart -->
+    <div class="glass-panel" style="margin-bottom: 30px;">
+      <h4 style="font-size: 1.1rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+        <i data-lucide="bar-chart-2" style="color: #34d399;"></i> Grievances Volume by Department & Category
+      </h4>
+      <div style="position: relative; height: 320px;">
+        <canvas id="categoryChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Live Cloud Event Stream Terminal -->
+    <div class="glass-panel">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <h4 style="font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+          <i data-lucide="terminal" style="color: var(--accent-cyan);"></i> Live Cloud Audit Log Stream
+        </h4>
+        <span style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-dim);">Auto-polling every 8s</span>
+      </div>
+
+      <div class="event-terminal" id="eventLogsTerminal">
+        <div class="event-row">
+          <span class="event-time">[00:00:00]</span>
+          <span class="event-badge">SYSTEM_INIT</span>
+          <span class="event-msg">Awaiting cloud telemetry handshake...</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/analytics.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
