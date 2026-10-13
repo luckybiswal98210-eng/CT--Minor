@@ -322,6 +322,40 @@ def create_report():
         "This decoupling prevents database bloat, ensures high database search speeds (<12ms), reduces cloud storage costs, and offloads file downloads to global CDN edge servers."
     )
 
+    # Embed Technical Pipeline Diagram
+    diag_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "cloud_storage_pipeline_diagram.png")
+    if os.path.exists(diag_path):
+        p_diag = doc.add_paragraph()
+        p_diag.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p_diag.paragraph_format.space_before = Pt(8)
+        p_diag.paragraph_format.space_after = Pt(4)
+        run_diag = p_diag.add_run()
+        run_diag.add_picture(diag_path, width=Inches(6.2))
+        p_cap = doc.add_paragraph()
+        p_cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p_cap.paragraph_format.space_after = Pt(8)
+        r_cap = p_cap.add_run("Figure 6.1: Decoupled Cloud Data Storage & Ingestion Pipeline Architecture")
+        r_cap.bold = True
+        r_cap.font.size = Pt(10)
+        r_cap.font.name = 'Times New Roman'
+
+    # Embed 3D Pipeline Visual
+    img_3d = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "cloud_pipeline_3d_architecture.jpg")
+    if os.path.exists(img_3d):
+        p_3d = doc.add_paragraph()
+        p_3d.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p_3d.paragraph_format.space_before = Pt(6)
+        p_3d.paragraph_format.space_after = Pt(4)
+        run_3d = p_3d.add_run()
+        run_3d.add_picture(img_3d, width=Inches(6.0))
+        p_cap2 = doc.add_paragraph()
+        p_cap2.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p_cap2.paragraph_format.space_after = Pt(8)
+        r_cap2 = p_cap2.add_run("Figure 6.2: 3D Isometric View of Dual-Stream Cloud Pipeline (Compute, DBaaS, Object CDN)")
+        r_cap2.bold = True
+        r_cap2.font.size = Pt(10)
+        r_cap2.font.name = 'Times New Roman'
+
     add_subsection_header("6.2 Cloud DBaaS Configuration (MongoDB Atlas):")
     add_body_paragraph(
         "A MongoDB Atlas cluster was provisioned in the AWS ap-south-1 region. Using Mongoose ODM, a schema was constructed "
